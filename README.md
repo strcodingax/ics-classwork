@@ -1,7 +1,7 @@
 # ics-classwork
 Computer Science classwork/homework
 
-# 1
+#1
 I chose computer science because my dad wanted me to do it, because there are a lot of good jobs in the world that need some level of coding, although I think that it's not really true because nowadays, AI does all of the real coding. You just revise the code it makes and pitch it as your own. I am hoping to learn some basic coding skills, and also be able to use helpful tools for people who code like GitHub.
 
 #2

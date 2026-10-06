@@ -1,0 +1,5 @@
+first_number = float(input("What is your first number? "))
+second_number = float(input("What is your second number? "))
+third_number = float(input("What is your third number? "))
+print("")
+print(f"({first_number} + {second_number} + {third_number}) / 2 is... {(first_number + second_number + third_number) / 2}")

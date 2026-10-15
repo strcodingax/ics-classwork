@@ -1,4 +1,4 @@
-print("WELCOME TO MITCHELL'S TINY ADVENTURE!")
+print("WELCOME TO AIDEN'S TINY ADVENTURE!")
 
 print('You are in a creepy house! would you like to go "upstairs" or into the "kitchen"?')
 decision_1 = input("> ")
@@ -11,32 +11,41 @@ if decision_1 == "upstairs":
         decision_4 = input("> ")
 
         if decision_4 == "yes":
-            print("You open the door to see multiple dolls and plushies.")
+            print("You find a collection of old dolls, close the closet, and leave the house with a story to tell.")
 
         elif decision_4 == "no":
-            print("You decide not to open the door, and instead opt to take a nap in the bed.")
+            print("You leave the closet closed, settle into the bed, and drift off to sleep.")
 
     elif decision_2 == "bathroom":
-        print("You have now entered the bathroom, around the corner you see a glimmer of orange light. You turn the corner and see a golden throne. Do you want to use the golden toilet? (\"yes\" or \"no\")")
+        print("You enter the bathroom and spot a candle burning beside the sink. Would you like to blow it out? (\"yes\" or \"no\")")
         decision_5 = input("> ")
 
         if decision_5 == "yes":
-            print("You sit on the golden toilet. Nothing special happens as you realize that all of this was just a waste of time.")
+            print("You blow out the candle and leave the quiet house.")
 
         elif decision_5 == "no":
-            print("You decided not to sit on the toilet, so you just linger around in the bathroom forever and ever.")
+            print("You leave the candle glowing and head home, glad to be out of the strange house.")
         
 elif decision_1 == "kitchen":
     print("There is a long countertop with dirty dishes everywhere.  Off to one side there is, as you'd expect, a refrigerator. You may open the \"refrigerator\" or look in a \"cabinet\".")
     decision_3 = input("> ")
 
     if decision_3 == "refrigerator":
-        print("Inside the refrigerator you see food and stuff.  It looks pretty nasty. Would you like to eat some of the food? (\"yes\" or \"no\"")
+        print("Inside the refrigerator you see food and stuff.  It looks pretty nasty. Would you like to eat some of the food? (\"yes\" or \"no\")")
         decision_6 = input("> ")
 
         if decision_6 == "yes":
-            print("You eat the food, and get serious food posioning, and you then spend a very long time in the bathroom/")
+            print("You try a bite, realize the food has gone bad, and leave the house to find something fresh.")
+
+        elif decision_6 == "no":
+            print("You skip the food, tidy the kitchen, and head home as evening falls.")
 
     elif decision_3 == "cabinet":
-        print("You opened the cabinet and found some snacks. They seem pretty old, but edible. Do you wnat to eat the food (\"yes\" or \"no\")?")
-        decision_6 = input("> ")
+        print("You opened the cabinet and found some snacks. They seem pretty old, but edible. Do you want to eat the food? (\"yes\" or \"no\")")
+        decision_7 = input("> ")
+
+        if decision_7 == "yes":
+            print("You try a snack, decide it isn't for you, and leave the house.")
+
+        elif decision_7 == "no":
+            print("You leave the snacks alone, tidy the kitchen, and head home feeling satisfied.")

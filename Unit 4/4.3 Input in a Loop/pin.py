@@ -17,7 +17,7 @@ print("\nPIN ACCEPTED. YOU NOW HAVE ACCESS TO YOUR ACCOUNT.")
 # A while loop will continue to run as long as the condition is true. However, an if statement will only run once if the condition is true.
 
 # 3
-# If th pin were to be an integer, the input would need to be converted to an integer using int() before comparing it to the PIN, like int(input("ENTER YOUR PIN: ")).
+# If the pin were to be an integer, the input would need to be converted to an integer using int() before comparing it to the PIN, like int(input("ENTER YOUR PIN: ")).
 
 # 4
 # when we comment out the entry = input("ENTER YOUR PIN: ") line, the program will not prompt the user to enter their PIN, 

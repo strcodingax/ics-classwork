@@ -17,6 +17,7 @@ clock = pygame.time.Clock()
 
 circle_x = 200
 circle_y = 200
+points = [(0,0), (0,0), (0,0)]
 
 # ---------------------------
 
@@ -26,26 +27,21 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            print(f"{event.pos},")
+            points.append(event.pos)
 
     # GAME STATE UPDATES
     # All game math and comparisons happen here
 
     # DRAWING
-    # Color can be done in Hexadecimal, RGB, or words in quotations ("")
-    # quotations only support basic colors (red, blue, green, etc.)
-    
     screen.fill((255, 255, 255))  # always the first drawing command
 
-    pygame.draw.rect(screen , (53 , 94 , 59) , (200,100,150,50))
+    pygame.draw.circle(screen, (0, 0, 255), (circle_x, circle_y), 30)
 
-    # for a rectangle, it's (surface, color (Hexadecimal, RGB, or words in quotations (""),
-    # and then the x , y , width, and height in a tuple (bracket) ))
+    #points = [(50,63) , (124,28) , (206,75)]
 
-    pygame.draw.circle(screen, "blue", (350,150), 40)
-
-    # for circles, it's (surface, color, center point, and radius)
-
-    # bigger x and y values mean they move further down (y) or right (x).
+    pygame.draw.polygon(screen, (200,20,20), points)
 
     # Must be the last two lines
     # of the game loop

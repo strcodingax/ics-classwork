@@ -1,7 +1,7 @@
 x = 0
 
 print("x")
-print("-----")
+print("-" * 6)
 
 for n in range(-20 , 21, 1 ):
     halve_step = 0

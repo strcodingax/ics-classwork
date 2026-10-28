@@ -40,8 +40,8 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            print(event.pos)
+        #elif event.type == pygame.MOUSEBUTTONDOWN:
+            #print(event.pos)
 
     # GAME STATE UPDATES
     # All game math and comparisons happen here
@@ -75,20 +75,32 @@ while running:
     sapling_bark_color = ( 111 , 78 , 55 )
     sapling_leaves_color = ( 34 , 139 , 34 )
 
-    
+    if frames_passed < 300: # Checks if less than 300 frames (10 seconds) have passed
 
-    if frames_passed < 300:
+        # Trunk
         pygame.draw.rect(screen , sapling_bark_color , (WIDTH // 2 , 310 , 10 , 70))
+
+        # Leaves
         pygame.draw.polygon(screen , sapling_leaves_color , (sapling_leaf_right))
         pygame.draw.polygon(screen , sapling_leaves_color , (sapling_leaf_left))
 
     # Tree (Fully grown)
 
-    if frames_passed >= 300:
-        sapling_bark_color = ( 111 , 78 , 55 )
-        sapling_leaves_color = ( 34 , 139 , 34 )
+    if frames_passed >= 300: # Checks if 300 frames (10 seconds) or more have passed
+        tree_bark_color = ( 111 , 78 , 55 )
+        tree_leaves_color = ( 34 , 139 , 34 )
 
-        pygame.draw.rect(screen , sapling_bark_color , (WIDTH // 2 - 10 , 310 , 40 , 300))
+        # Trunk
+        pygame.draw.rect(screen , sapling_bark_color , (WIDTH // 2 - 10 , 270 , 40 , 130))
+
+        # Leaves
+        pygame.draw.circle(screen, tree_leaves_color , (284 , 247), 40)
+        pygame.draw.circle(screen, tree_leaves_color , (287 , 192), 40)
+        pygame.draw.circle(screen, tree_leaves_color , (340 , 170), 40)
+        pygame.draw.circle(screen, tree_leaves_color , (379 , 200), 40)
+        pygame.draw.circle(screen, tree_leaves_color , (385 , 236), 40)
+        pygame.draw.circle(screen, tree_leaves_color , (330 , 241), 40)
+        
 
     # Cloud 1
     cloud_color = (240,240,240)

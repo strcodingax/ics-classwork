@@ -16,9 +16,22 @@ clock = pygame.time.Clock()
 # ---------------------------
 # Initialize global variables
 
-cloud_x = 148
-cloud_y = 72
+cloud_1_x = 250
+cloud_1_y = 72
 
+cloud_2_x = 10
+cloud_2_y = 120
+
+cloud_3_x = 486
+cloud_3_y = 162
+
+sun_x = 0
+sun_y = 0
+
+frames_passed = 0
+
+sapling_leaf_left = [(319 , 307) , (319 , 328) , (274, 301) , (287,289)]
+sapling_leaf_right = [(331, 331) , (371,297) , (366,288) , (329,308)]
 # ---------------------------
 
 running = True
@@ -32,19 +45,66 @@ while running:
 
     # GAME STATE UPDATES
     # All game math and comparisons happen here
-    cloud_x += 3
 
-    if cloud_x >= WIDTH + 40:
-        cloud_x = -102
+    #print(frames_passed)
+
+    # Moving the cloud right
+    cloud_1_x += 3
+    cloud_2_x += 3
+    cloud_3_x += 3
+
+    # Moving clouds back when they go too far to the right
+    if cloud_1_x >= WIDTH + 40:
+        cloud_1_x = -102
+
+    if cloud_2_x >= WIDTH + 40:
+        cloud_2_x = -102
+
+    if cloud_3_x >= WIDTH + 40:
+        cloud_3_x = -102
+
 
     # DRAWING
     screen.fill((135, 206, 255))  # always the first drawing command
 
-    # Cloud
+    # Sun
+    sun_color = (252,245,95)
+    pygame.draw.circle(screen ,sun_color , (sun_x ,sun_y), 60)
+
+    # Tree (not grown)
+    sapling_bark_color = ( 111 , 78 , 55 )
+    sapling_leaves_color = ( 34 , 139 , 34 )
+
+    
+
+    if frames_passed < 300:
+        pygame.draw.rect(screen , sapling_bark_color , (WIDTH // 2 , 310 , 10 , 70))
+        pygame.draw.polygon(screen , sapling_leaves_color , (sapling_leaf_right))
+        pygame.draw.polygon(screen , sapling_leaves_color , (sapling_leaf_left))
+
+    # Tree (Fully grown)
+
+    if frames_passed >= 300:
+        sapling_bark_color = ( 111 , 78 , 55 )
+        sapling_leaves_color = ( 34 , 139 , 34 )
+
+        pygame.draw.rect(screen , sapling_bark_color , (WIDTH // 2 - 10 , 310 , 40 , 300))
+
+    # Cloud 1
     cloud_color = (240,240,240)
-    pygame.draw.circle(screen, cloud_color , (cloud_x , cloud_y), 40)
-    pygame.draw.circle(screen, cloud_color , (cloud_x + 46 , cloud_y + 25), 40)
-    pygame.draw.circle(screen, cloud_color , (cloud_x - 15 , cloud_y + 40), 40)
+    pygame.draw.circle(screen, cloud_color , (cloud_1_x , cloud_1_y), 40)
+    pygame.draw.circle(screen, cloud_color , (cloud_1_x + 46 , cloud_1_y + 15), 40)
+    pygame.draw.circle(screen, cloud_color , (cloud_1_x - 15 , cloud_1_y + 20), 40)
+
+    # Cloud 2
+    pygame.draw.circle(screen, cloud_color , (cloud_2_x , cloud_2_y), 40)
+    pygame.draw.circle(screen, cloud_color , (cloud_2_x + 33 , cloud_2_y + 25), 40)
+    pygame.draw.circle(screen, cloud_color , (cloud_2_x - 20 , cloud_2_y + 30), 40)
+
+    # Cloud 3
+    pygame.draw.circle(screen, cloud_color , (cloud_3_x , cloud_3_y), 40)
+    pygame.draw.circle(screen, cloud_color , (cloud_3_x + 33 , cloud_3_y + 25), 40)
+    pygame.draw.circle(screen, cloud_color , (cloud_3_x - 20 , cloud_3_y + 30), 40)
 
     # Hill
     rect = (-50, HEIGHT -100, WIDTH + 100, HEIGHT // 2)
@@ -61,6 +121,7 @@ while running:
     # of the game loop
     pygame.display.flip()
     clock.tick(30)
+    frames_passed += 1
     #---------------------------
 
 

@@ -100,7 +100,6 @@ while running:
         pygame.draw.circle(screen, tree_leaves_color , (379 , 200), 40)
         pygame.draw.circle(screen, tree_leaves_color , (385 , 236), 40)
         pygame.draw.circle(screen, tree_leaves_color , (330 , 241), 40)
-        
 
     # Cloud 1
     cloud_color = (240,240,240)
@@ -123,11 +122,23 @@ while running:
     pygame.draw.ellipse(screen , (92, 172 , 45) , rect)
 
     # Grass
-    x = 40
-    while x < WIDTH:
-        y = HEIGHT - 40 + math.sin(x) * 30
-        pygame.draw.rect(screen, (65, 140 , 35), (x, y, 3, 30))
-        x += 10
+    n = 40
+    while n < WIDTH:
+        y = HEIGHT - 40 + math.sin(n) * 30
+        pygame.draw.rect(screen, (65, 140 , 35), (n, y, 3, 30))
+        n += 10
+
+    # Fence
+
+    # Vertical part 
+    i = 30
+    while i <= WIDTH -30:
+        y = 385
+        pygame.draw.rect(screen, (255, 255, 255), (i, y, 10, 45))
+        i += 30
+
+    # Horizontal part
+    pygame.draw.rect(screen, (255, 255 , 255), (30 , 400 , WIDTH -60 , 10 ))
     
     # Must be the last two lines
     # of the game loop

@@ -27,6 +27,11 @@ cloud_3_y = 162
 
 sun_x = 0
 sun_y = 0
+sun_angle = 0
+
+moon_x = 0
+moon_y = 0
+moon_angle = 0
 
 frames_passed = 0
 
@@ -65,11 +70,45 @@ while running:
 
 
     # DRAWING
-    screen.fill((135, 206, 255))  # always the first drawing command
-
-    # Sun
+    screen.fill((135, 206, 255))  # always the first drawing command  
+    
+    # Drawing the Sun
     sun_color = (252,245,95)
     pygame.draw.circle(screen ,sun_color , (sun_x ,sun_y), 60)
+
+    # Moving the Sun
+
+    # Increment angle
+    sun_angle += 0.015
+
+    # Convert to radians because sin and cos need radians for some reason
+    sun_radians = math.radians(sun_angle)
+
+    # Finding out the coordinates for the next sun (300 and 275 make sure that the sun goes in a big circle)
+    sun_x = 320 + int(300 * math.cos(sun_angle))
+    
+    sun_y = 350 + int(275 * math.sin(sun_angle))
+
+    # Drawing the Sun
+    sun_color = (252,245,95)
+    pygame.draw.circle(screen ,sun_color , (sun_x ,sun_y), 60)
+
+    # Moving the Moon
+
+    # Make angle 180 degrees (pi) from the sun
+    moon_angle = sun_angle + math.pi
+
+    # Convert to radians because sin and cos need radians for some reason
+    moon_radians = math.radians(moon_angle)
+
+    # Finding out the coordinates for the next sun (300 and 275 make sure that the sun goes in a big circle)
+    moon_x = 320 + int(300 * math.cos(moon_angle))
+    
+    moon_y = 350 + int(275 * math.sin(moon_angle))    
+    
+    # Drawing the Moon
+    moon_color = (246,241,243)
+    pygame.draw.circle(screen , moon_color , (moon_x , moon_y), 60)
 
     # Tree (not grown)
     sapling_bark_color = ( 111 , 78 , 55 )

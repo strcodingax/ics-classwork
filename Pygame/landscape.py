@@ -139,7 +139,7 @@ while running:
     sapling_bark_color = ( 111 , 78 , 55 )
     sapling_leaves_color = ( 34 , 139 , 34 )
 
-    if frames_passed < 300: # Checks if less than 300 frames (10 seconds) have passed
+    if frames_passed < 450: # Checks if less than 390 frames (15 seconds) have passed
 
         # Trunk
         pygame.draw.rect(screen , sapling_bark_color , (WIDTH // 2 , 310 , 10 , 70))
@@ -150,7 +150,7 @@ while running:
 
     # Tree (Fully grown)
 
-    if frames_passed >= 300: # Checks if 300 frames (10 seconds) or more have passed
+    if frames_passed >= 450: # Checks if 390 frames (15 seconds) or more have passed
         tree_bark_color = ( 111 , 78 , 55 )
         tree_leaves_color = ( 34 , 139 , 34 )
 

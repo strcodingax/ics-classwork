@@ -40,7 +40,9 @@ moon_x = 0
 moon_y = 0
 moon_angle = 0
 
-frames_passed = 0
+frames_passed = 0   
+
+gradient_max = 100
 
 day_sky_color = (135, 206, 255)
 day_cloud_color = (240, 240 , 240)
@@ -108,17 +110,19 @@ while running:
     moon_y = 350 + int(275 * math.sin(moon_angle))    
 
     # We use a sin function for the oscillating effect (going up and down), and then we add one so that the max and min is not -1 and 1, but 0 and 2. 
-    # Then, we divide by 2 to make the max 0 and 1. Lastly, we multiply by 100 to make it a range from 0 to 100.
-    gradient_step = int(((math.sin(sun_angle) + 1) / 2) * 100)
+    # Then, we divide by 2 to make the max 0 and 1. Lastly, we multiply by 100 to make it a range from 0 to 100. 
+    # This is used over a for loop because it uses the sun's angle for the gradient, so it can transition to day to night smoothly and on time (not early or late)
+
+    gradient_step = int(((math.sin(sun_angle) + 1) / 2) * gradient_max)
 
     # Subtracts gradient_calc's result from the R,G or B value of the sky or cloud color during the day.
-    sky_r = day_sky_color[0] - gradient_calc(day_sky_color[0] , night_sky_color[0] , 100 , gradient_step)
-    sky_g = day_sky_color[1] - gradient_calc(day_sky_color[1] , night_sky_color[1] , 100 , gradient_step)
-    sky_b = day_sky_color[2] - gradient_calc(day_sky_color[2] , night_sky_color[2] , 100 , gradient_step)
+    sky_r = day_sky_color[0] - gradient_calc(day_sky_color[0] , night_sky_color[0] , gradient_max , gradient_step)
+    sky_g = day_sky_color[1] - gradient_calc(day_sky_color[1] , night_sky_color[1] , gradient_max, gradient_step)
+    sky_b = day_sky_color[2] - gradient_calc(day_sky_color[2] , night_sky_color[2] , gradient_max , gradient_step)
 
-    cloud_r = day_cloud_color[0] - gradient_calc(day_cloud_color[0] , night_cloud_color[0] , 100 , gradient_step)
-    cloud_g = day_cloud_color[1] - gradient_calc(day_cloud_color[1] , night_cloud_color[1] , 100 , gradient_step)
-    cloud_b = day_cloud_color[2] - gradient_calc(day_cloud_color[2] , night_cloud_color[2] , 100 , gradient_step)
+    cloud_r = day_cloud_color[0] - gradient_calc(day_cloud_color[0] , night_cloud_color[0] , gradient_max , gradient_step)
+    cloud_g = day_cloud_color[1] - gradient_calc(day_cloud_color[1] , night_cloud_color[1] , gradient_max , gradient_step)
+    cloud_b = day_cloud_color[2] - gradient_calc(day_cloud_color[2] , night_cloud_color[2] , gradient_max , gradient_step)
 
     sky_color = (sky_r, sky_g, sky_b)
     cloud_color = (cloud_r, cloud_g , cloud_b)

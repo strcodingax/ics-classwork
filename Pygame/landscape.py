@@ -154,7 +154,7 @@ while running:
 
     # Tree (Fully grown)
 
-    if frames_passed >= 450: # Checks if 390 frames (15 seconds) or more have passed
+    if frames_passed >= 450: # Checks if 450 frames (15 seconds) or more have passed
         tree_bark_color = ( 111 , 78 , 55 )
         tree_leaves_color = ( 34 , 139 , 34 )
 
@@ -198,11 +198,12 @@ while running:
     # Fence
 
     # Vertical part 
-    i = 30
-    while i <= WIDTH -30:
+    spacing = 30
+    while spacing <= WIDTH -30:
         y = 385
-        pygame.draw.rect(screen, (255, 255, 255), (i, y, 10, 45))
-        i += 30
+        pygame.draw.rect(screen, (255, 255, 255), (spacing, y, 10, 45))
+        # i is the spacing between fences
+        spacing += 30
 
     # Horizontal part
     pygame.draw.rect(screen, (255, 255 , 255), (30 , 400 , WIDTH -60 , 10 ))

@@ -1,7 +1,6 @@
-import math
+input_string = input("Enter a string:" )
 
-def gradient_calc(start:int ,end:int, step_number:int, current_step:int):
-        return math.ceil(((start - end) / step_number) * current_step) 
+string_length = len(input_string)
 
-
-print(f"{gradient_calc(751,380,10,4)}")
+for i in range( 0, string_length, 1):
+    print(input_string[i])

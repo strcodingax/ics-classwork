@@ -19,3 +19,11 @@ print("")
 print("List 2:", end = " ")
 for n in range (len(second_list)):
     print(second_list[n], end = " ")
+
+# 1
+
+#list1 = [5, 6, 7, 8]
+#list2 = list1
+
+# you can't just make a list equal to another one like that because you simply make it so that when the program wants to use the "copied" list,
+# they just use the original list instead.
